@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -61,13 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        success: '#54D488', // from PRD colorPalette.success
+        // accentSecondary from PRD is mapped to destructive: '#FF6666'
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        // var(--radius) is 0.375rem (rounded-md from PRD)
+				lg: 'var(--radius)', // 0.375rem
+				md: 'calc(var(--radius) - 2px)', // approx 0.25rem
+				sm: 'calc(var(--radius) - 4px)' // approx 0.125rem
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
